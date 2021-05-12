@@ -1,8 +1,15 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 
 class Stats extends StatelessWidget {
+  final String stats;
+
+  Stats({this.stats});
   @override
   Widget build(BuildContext context) {
+    final data = json.decode(stats);
+    print(data);
     return Container(
       width: double.infinity,
       child: Card(
@@ -26,7 +33,7 @@ class Stats extends StatelessWidget {
                     style: TextStyle(color: Colors.white, fontSize: 16),
                   ),
                   Text(
-                    '1,23,456',
+                    data['cases'].toString(),
                     style: TextStyle(
                         color: Colors.white,
                         fontWeight: FontWeight.bold,
@@ -49,7 +56,7 @@ class Stats extends StatelessWidget {
                         color: Colors.black, fontWeight: FontWeight.bold),
                   ),
                   Text(
-                    '200,000',
+                    data['recovered'].toString(),
                     style: TextStyle(
                         color: Colors.lightGreen, fontWeight: FontWeight.bold),
                   )
@@ -67,7 +74,7 @@ class Stats extends StatelessWidget {
                         color: Colors.black, fontWeight: FontWeight.bold),
                   ),
                   Text(
-                    '2,000',
+                    data['deaths'].toString(),
                     style: TextStyle(
                         color: Colors.red, fontWeight: FontWeight.bold),
                   )
@@ -95,7 +102,7 @@ class Stats extends StatelessWidget {
                     ],
                   ),
                   Text(
-                    '200,000',
+                    data['active'].toString(),
                     style: TextStyle(
                         color: Colors.black, fontWeight: FontWeight.bold),
                   )
@@ -123,7 +130,7 @@ class Stats extends StatelessWidget {
                     ],
                   ),
                   Text(
-                    '200,000',
+                    data['recovered'].toString(),
                     style: TextStyle(
                         color: Colors.black, fontWeight: FontWeight.bold),
                   )
